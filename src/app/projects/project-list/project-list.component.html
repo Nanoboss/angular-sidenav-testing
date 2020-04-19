@@ -1,0 +1,70 @@
+<app-sidenav> </app-sidenav>
+
+<mat-spinner *ngIf="isLoading"></mat-spinner>
+
+<mat-grid-list
+	appGridResponsive
+	[gutterSize]="'10px'"
+	*ngIf="projects.length > 0 && !isLoading"
+>
+	<mat-grid-tile
+		*ngFor="let project of projects"
+		[class.mat-elevation-z8]="true"
+	>
+		<mat-card
+			fxFlex="500px"
+			style="text-align:center;"
+			[class.mat-elevation-z24]="true"
+		>
+			<mat-card-title class="align">{{ project.title }}</mat-card-title>
+
+			<img mat-card-image src="../../../assets/Circle-icons-rocket.png" />
+			<mat-card-content>
+				<p>
+					{{ project.content }}
+				</p>
+			</mat-card-content>
+
+			<mat-card-actions>
+				<button
+					mat-raised-button
+					color="primary"
+					mat-button
+					routerLink="/sprint-ongoing"
+				>
+					GO
+				</button>
+			</mat-card-actions>
+		</mat-card>
+	</mat-grid-tile>
+
+	<mat-grid-tile
+		class="info-text mat-display-1"
+		*ngIf="projects.length > 0 && !isLoading"
+	>
+		<p>
+			... or start a new amazing project now!
+			<br />
+			<a mat-fab color="primary" routerLink="/project-create">
+				<mat-icon>create</mat-icon>
+			</a>
+		</p>
+	</mat-grid-tile>
+</mat-grid-list>
+
+<h1
+	class="info-text"
+	class="info-text mat-display-1"
+	*ngIf="projects.length <= 0 && !isLoading"
+>
+	<img
+		mat-card-image
+		src="../../../assets/undraw_scrum_board_cesn.png"
+		class="image"
+	/>
+
+	<p>Nothing to see.. Start a new amzaing project now!</p>
+	<a mat-raised-button color="primary" routerLink="/project-create">
+		CREATE A NEW PROJECT</a
+	>
+</h1>

@@ -1,0 +1,80 @@
+<app-toolbar>
+  <a mat-button slot="end" routerLink="/signup">Signup</a>
+  <a mat-button slot="end" routerLink="/login">Login</a>
+</app-toolbar>
+
+<h1 class="info-text" class="info-text mat-display-1 align">
+  <p>Signup</p>
+
+  <mat-card class="my-card">
+    <mat-spinner *ngIf="isLoading"> </mat-spinner>
+    <mat-card-content>
+      <form
+        (submit)="onSignup(signupForm)"
+        #signupForm="ngForm"
+        class="my-form"
+        *ngIf="!isLoading"
+      >
+        <mat-card-content>
+          <mat-form-field class="full-width" appearance="outline">
+            <mat-label>Full Name</mat-label>
+            <input
+              matInput
+              placeholder="Full Name"
+              name="username"
+              ngModel
+              #fullNameInput="ngModel"
+              required
+            />
+            <mat-error *ngIf="fullNameInput.invalid"
+              >Please enter your full name.</mat-error
+            >
+          </mat-form-field>
+          <mat-form-field class="full-width" appearance="outline">
+            <mat-label>Email</mat-label>
+            <input
+              matInput
+              type="email"
+              placeholder="Email"
+              name="email"
+              ngModel
+              #emailInput="ngModel"
+              required
+              email
+            />
+            <mat-error *ngIf="emailInput.invalid"
+              >Please enter a valid e-mail adress.</mat-error
+            >
+          </mat-form-field>
+          <mat-form-field class="full-width" appearance="outline">
+            <mat-label>Password</mat-label>
+            <input
+              matInput
+              type="password"
+              placeholder="Password"
+              name="password"
+              ngModel
+              #passwordInput="ngModel"
+              required
+            />
+            <mat-error *ngIf="passwordInput.invalid"
+              >Please enter a password.</mat-error
+            >
+          </mat-form-field>
+          <mat-card-actions>
+            <button mat-raised-button type="submit" color="primary">
+              SIGNUP
+            </button>
+          </mat-card-actions>
+        </mat-card-content>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</h1>
+
+<div>
+  <h3>
+    Already an account?
+    <a mat-raised-button color="accent" routerLink="/login">LOG IN</a>
+  </h3>
+</div>

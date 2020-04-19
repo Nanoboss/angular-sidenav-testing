@@ -1,0 +1,34 @@
+/* You can add global styles to this file, and also import other style files */
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+// global styles and changing bulma variables
+
+// Import Google Fonts
+@import url('https://fonts.googleapis.com/css?family=Nunito:400,700|Lato:400,800,900');
+
+$family-sans-serif: "Nunito", sans-serif;
+
+// Update some of Bulma's component variables
+$control-border-width: 2px;
+$input-border-color: transparent;
+$input-shadow: none;
+
+/* GLOBAL STYLES */
+html, body {
+    height: 100%;
+}
+
+html {
+    background-image: url('./assets/mount-fuji-minimal.jpg');
+    background-size: cover;
+    background-position: 50% 50%;
+    overflow-y: auto !important;
+}

@@ -1,0 +1,52 @@
+<app-sidenav> </app-sidenav>
+
+<div class="position info-text mat-display-1">
+  Create a new project
+</div>
+<br />
+<div class="position info-text mat-display-1" [class.mat-elevation-z24]="true">
+  <mat-card>
+    <mat-spinner *ngIf="isLoading"></mat-spinner>
+
+    <form
+      (submit)="onSaveProject(projectForm)"
+      #projectForm="ngForm"
+      *ngIf="!isLoading"
+    >
+      <mat-form-field>
+        <input
+          matInput
+          type="text"
+          name="title"
+          placeholder="Project Name"
+          [ngModel]="project?.title"
+          required
+          #title="ngModel"
+        />
+        <mat-error *ngIf="title.invalid">Please enter a project name</mat-error>
+      </mat-form-field>
+
+      <br />
+
+      <mat-form-field>
+        <textarea
+          matInput
+          rows="5"
+          name="content"
+          placeholder="Give us a description of your project."
+          [ngModel]="project?.content"
+          required
+          #content="ngModel"
+        >
+        </textarea>
+        <mat-error *ngIf="content.invalid"
+          >Please enter the content of the project</mat-error
+        >
+      </mat-form-field>
+
+      <button mat-raised-button color="accent" type="submit">
+        Let's get started!
+      </button>
+    </form>
+  </mat-card>
+</div>
